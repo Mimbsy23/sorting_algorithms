@@ -40,10 +40,10 @@ void insertion_sort_list(listint_t **list)
 			ptr->prev = node;
 
 			if (node->prev == NULL)
-				list = node; / Update head if needed */
+				*list = node; /* Update head if needed */
 
-					/* Print the current state of the list */
-					print_list(*list);
+			/* Print the current state of the list */
+			print_list(*list);
 		}
 	}
 }
