@@ -11,13 +11,13 @@ void swap_int(int *a, int *b);
  */
 size_t knuth_seq(size_t size)
 {
-    size_t seq = 1;
+	size_t seq = 1;
 
-    while (seq < size)
-    {
-        seq = seq * 3 + 1;
-    }
-    return (seq / 3);
+	while (seq < size)
+	{
+		seq = seq * 3 + 1;
+	}
+	return (seq / 3);
 }
 
 /**
@@ -27,10 +27,10 @@ size_t knuth_seq(size_t size)
  */
 void swap_int(int *a, int *b)
 {
-    int temp = *a;
+	int temp = *a;
 
-    (*a) = *b;
-    *b = temp;
+	(*a) = *b;
+	*b = temp;
 }
 
 /**
@@ -41,22 +41,22 @@ void swap_int(int *a, int *b)
  */
 void shell_sort(int *array, size_t size)
 {
-    int seq, i, j, int_size = size;
+	int seq, i, j, int_size = size;
 
-    seq = knuth_seq(size);
-    while (seq >= 1)
-    {
-        for (j = seq; j < int_size; j++)
-        {
-            for (i = j - seq; i >= 0; i -= seq)
-            {
-                if (array[i + seq] < array[i])
-                    swap_int(array + i + seq, array + i);
-                else
-                    break;
-            }
-        }
-        print_array(array, size);
-        seq /= 3;
-    }
+	seq = knuth_seq(size);
+	while (seq >= 1)
+	{
+		for (j = seq; j < int_size; j++)
+		{
+			for (i = j - seq; i >= 0; i -= seq)
+			{
+				if (array[i + seq] < array[i])
+					swap_int(array + i + seq, array + i);
+				else
+					break;
+			}
+		}
+		print_array(array, size);
+		seq /= 3;
+	}
 }
