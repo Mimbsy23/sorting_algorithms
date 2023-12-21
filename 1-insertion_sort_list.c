@@ -10,40 +10,40 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-        listint_t *temp, *node, *ptr;
+	listint_t *temp, *node, *ptr;
 
-        if (list == NULL || *list == NULL || (*list)->next == NULL)
-                return;
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
+		return;
 
-        temp = (*list)->next;
+	temp = (*list)->next;
 
-        while (temp != NULL)
-        {
-                node = temp;
-                temp = temp->next;
+	while (temp != NULL)
+	{
+		node = temp;
+		temp = temp->next;
 
-                while (node->prev != NULL && node->n < node->prev->n)
-                {
-                        ptr = node->prev;
+		while (node->prev != NULL && node->n < node->prev->n)
+		{
+			ptr = node->prev;
 
-                        /* Adjust pointers for insertion */
-                        ptr->next = node->next;
-                        if (node->next != NULL)
-                                node->next->prev = ptr;
+			/* Adjust pointers for insertion */
+			ptr->next = node->next;
+			if (node->next != NULL)
+				node->next->prev = ptr;
 
-                        node->prev = ptr->prev;
-                        node->next = ptr;
+			node->prev = ptr->prev;
+			node->next = ptr;
 
-                        if (ptr->prev != NULL)
-                                ptr->prev->next = node;
+			if (ptr->prev != NULL)
+				ptr->prev->next = node;
 
-                        ptr->prev = node;
+			ptr->prev = node;
 
-                        if (node->prev == NULL)
-                                list = node; / Update head if needed */
+			if (node->prev == NULL)
+				list = node; / Update head if needed */
 
-                        /* Print the current state of the list */
-                        print_list(*list);
-                }
-        }
+					/* Print the current state of the list */
+					print_list(*list);
+		}
+	}
 }
